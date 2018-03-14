@@ -7,13 +7,14 @@ int queue[MAXSIZE];
 int head = 0;
 int tail = -1;
 int count = 0;
+int sel;
 
 bool isEmpty(){
 	return count == 0;
 }
 
 bool isFull(){
-	return count == MAXSIZE;
+	return count >= MAXSIZE;
 }
 
 
@@ -21,19 +22,18 @@ int queue_size(){
 	return count;
 }
 
-int select(indx){
-	return queue[indx];
+int select(){
+	return queue[sel];
 }
 
 
 void insert(int value){
 
 	if(!isFull()){
-		if(tail == MAXSIZE - 1){
-			tail--;
-		}
 		queue[++tail] = value;
 		count++;
+	} else {
+		printf("Insert error - Queue is full.\n");
 	}
 }
 
@@ -66,7 +66,7 @@ int main(){
 
 //Show a single element
 	select(2);
-	printf("The selected element is: %d\n" ,select());
+	printf("The selected element is: %d\n" ,select(sel));
 
 	printf("Amount of elements in queue: %d\n", queue_size());
 

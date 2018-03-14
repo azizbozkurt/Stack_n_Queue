@@ -5,18 +5,33 @@
 
 int stack[LENGTH];
 int top = -1;
+int sel;
+
 
 bool isempty(){
 	return top == -1;
 }
 
 bool isfull(){
-	return top == LENGTH;
+	return top >= LENGTH - 1;
 }
 
 
-int selec(sel){
+int select(int sel){
 	return stack[sel];
+}
+
+
+int push(int value){
+
+	if(!isfull())
+	{
+		top++;
+		stack[top] = value;
+	} else {
+		printf("Couldn't push some value. Stack is full. \n");
+	}
+	return 0;
 }
 
 
@@ -29,22 +44,12 @@ int pop(){
 		return value;
 	} else {
 		printf("Couldn't pop any value. Stack is empty. \n");
-	}
-}
-
-int push(int value){
-
-	if(!isfull())
-	{
-		top++;
-		stack[top] = value;
-	} else {
-		printf("Couldn't push some value. Stack is full. \n");
+		return 0;
 	}
 }
 
 
-int main(){
+int main() {
 
 //Add elements
 	push(7);
@@ -61,12 +66,12 @@ int main(){
 	push(995);
 
 //Show a single element
-	selec(2);
-	printf("The selected element is: %d\n" ,selec());
+	select(2);
+	printf("The selected element is: %d\n" ,select(sel));
 
 
 //Delete elements, by LIFO
-	//pop();
+	pop();
 	//pop();
 
 
