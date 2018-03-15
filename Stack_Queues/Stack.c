@@ -6,6 +6,7 @@
 int stack[LENGTH];
 int top = -1;
 int sel;
+//int value;
 
 
 bool isempty(){
@@ -28,6 +29,10 @@ int push(int value){
 	{
 		top++;
 		stack[top] = value;
+		//Used for testing
+		//printf("good %d\n" , stack[top]);
+		return stack[top];
+
 	} else {
 		printf("Couldn't push some value. Stack is full. \n");
 	}
@@ -49,6 +54,7 @@ int pop(){
 }
 
 
+/*
 int main() {
 
 //Add elements
@@ -83,3 +89,4 @@ while(!isempty()) {
 	}
 
 }
+*/
