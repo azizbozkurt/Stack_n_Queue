@@ -5,8 +5,9 @@
 
 int stack[LENGTH];
 int top = -1;
-int sel;
-//int value;
+
+int popval;
+int peekval;
 
 
 bool isempty(){
@@ -17,9 +18,18 @@ bool isfull(){
 	return top >= LENGTH - 1;
 }
 
+/**********************************************************************************
 
 int select(int sel){
-	return stack[sel];
+	selval = stack[sel];
+	return selval;
+}
+
+**********************************************************************************/
+
+int peek() {
+	peekval = stack[top];
+	return peekval;
 }
 
 
@@ -28,7 +38,7 @@ int push(int value){
 	if(!isfull())
 	{
 		top++;
-		stack[top] = value;
+ 		stack[top] = value;
 		//Used for testing
 		//printf("good %d\n" , stack[top]);
 		return stack[top];
@@ -41,17 +51,19 @@ int push(int value){
 
 
 int pop(){
-	int value;
+	//int value;
 
 	if(!isempty()){
-		value = stack[top];
+		popval = stack[top];
 		--top;
-		return value;
+		return popval;
 	} else {
-		printf("Couldn't pop any value. Stack is empty. \n");
+		//Commented out for test purposes
+		//printf("Couldn't pop any value. Stack is empty. \n");
 		return 0;
 	}
 }
+
 
 
 /*
