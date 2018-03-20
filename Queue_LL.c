@@ -37,6 +37,7 @@ void Enqueue(int input) {
 
 }
 
+
 int Dequeue() {
 
 	if(isEmpty()) {
@@ -53,6 +54,16 @@ int Dequeue() {
 }
 	
 
+int showAll() {
+	
+	printf("\nElements in the Queue are:\n");
+	while(!isEmpty()) {
+	printf("%d\n", head->value);
+	head = head->next;
+	}
+}
+
+
 
 int main() {
 
@@ -60,12 +71,15 @@ Enqueue(77);
 Enqueue(33);
 Enqueue(22);
 Enqueue(11);
+Enqueue(99);
+Enqueue(88);
+Enqueue(66);
+Enqueue(55);
 
 Dequeue();
 Dequeue();
-Dequeue();
-Dequeue();
-Dequeue();
+
+showAll();
 
 //printf("%p\n", tail);
 //printf("%p\n", head);
@@ -73,4 +87,6 @@ Dequeue();
 return 0;
 
 }
+
+
 
