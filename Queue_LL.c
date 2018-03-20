@@ -13,11 +13,11 @@ ND *tail = NULL;
 ND *head = NULL;
 
 bool isEmpty() {
-	return tail == NULL;
+	return head == NULL;
 }
 
 
-void push(int input) {
+void Enqueue(int input) {
 	
 	//ND *newNode;
 	ND *newNode = (ND*)malloc(sizeof(ND));
@@ -27,30 +27,48 @@ void push(int input) {
 	newNode->next = NULL;
 	tail = newNode;
 	head = newNode;
-	printf("Pushed - First Node is %d\n", input);
+	printf("Enqueued - First node is %d\n", input);
 	} 
 	else {
-	newNode->next = tail;
+	tail->next = newNode;
 	tail = newNode;
-	printf("Pushed %d\n", input);
+	printf("Enqueued %d\n", input);
 	}
 
 }
 
+int Dequeue() {
 
-
-
-
-
-
-
+	if(isEmpty()) {
+	printf("Cant dequeue. Queue is empty!\n");
+	} else if(head==tail){
+	printf("Dequeued element %d\n", head->value);
+	head = NULL;
+	tail = NULL;
+	} else {
+	printf("Dequeued element %d\n", head->value);
+	head = head->next;
+	}
+	
+}
+	
 
 
 int main() {
 
-push(77);
-push(88);
-push(99);
+Enqueue(77);
+Enqueue(33);
+Enqueue(22);
+Enqueue(11);
+
+Dequeue();
+Dequeue();
+Dequeue();
+Dequeue();
+Dequeue();
+
+//printf("%p\n", tail);
+//printf("%p\n", head);
 
 return 0;
 
