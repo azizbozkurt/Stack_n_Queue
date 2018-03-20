@@ -8,9 +8,9 @@ struct node
 	struct node *next;
 };
 
+typedef struct node NOD;
 
-struct node *top = NULL;
-
+NOD *top;
 
 bool isEmpty() {
 	return top == NULL;
@@ -37,14 +37,38 @@ void push (int input) {
 
 
 int peek() {
+
 	int peekval;
 
 	if(isEmpty()) {
-	printf("Stack is empty!");
+	printf("Stack is empty!\n");
 	} else {
 	peekval = top->value;
 	printf("Top element is %d\n", top->value);
 	return peekval;
+	}
+}
+
+
+int pop() {
+
+	if(isEmpty()) {
+	printf("Stack is empty!!\n");
+	} else {
+	//NOD *temp;
+	printf("Deleted element %d\n", top->value);
+	top = top->next;
+	}
+}
+
+
+int showAll() {
+		
+	printf("\nElements in the stack are:\n");
+
+	while(!isEmpty()) {
+	printf("%d\n", top->value);
+	top = top->next;
 	}
 }
 
@@ -55,17 +79,29 @@ push(77);
 push(99);
 push(11);
 push(22);
+push(33);
+push(44);
+push(55);
+push(66);
+push(77);
+push(98);
+push(99);
 
-//printf("%x\n", top);
+
 
 //printf("%d\n", *top);
 
 //printf("%x \n", &top);
 
 //printf("Top element is %d\n", top->value);
+pop();
+pop();
 
 peek();
 
+showAll();
+
+peek();
 return 0;
 
 }
