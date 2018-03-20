@@ -10,7 +10,7 @@ struct node
 
 typedef struct node NOD;
 
-NOD *top;
+NOD *top = NULL;
 
 bool isEmpty() {
 	return top == NULL;
@@ -19,8 +19,8 @@ bool isEmpty() {
 
 void push (int input) {
 
-	struct node *newNode;
-	newNode = (struct node*)malloc(sizeof(struct node));
+	//struct node *newNode;
+	struct node *newNode = (struct node*)malloc(sizeof(struct node));
 	newNode->value = input;
 
 	if (isEmpty()) {
