@@ -35,37 +35,40 @@ int push (int input) {
 	printf("Pushed %d\n", input);
 	return top->value;
 	}
-	return 0;
+return 0;
 }
 
 
 
 int peek() {
 
-	int peekval;
-
 	if(isEmpty()) {
 	printf("Stack is empty!\n");
 	} else {
-	peekval = top->value;
-	printf("Top element is %d\n", top->value);
+	int peekval = top->value;
+	//Comment when under test
+	//printf("Top element is %d\n", top->value);
 	return peekval;
 	}
+return 0;
 }
 
 
 int pop() {
 
 	if(isEmpty()) {
-	printf("Stack is empty!!\n");
-	} else {
+	//Comment when under test
+	//printf("Stack is empty!!\n");
+	} 
+	else {
 	NOD *poptemp = top;
-	top = top->next;
+	top = poptemp->next;
 	//Comment when under test
 	//printf("Deleted element %d\n", poptemp->value);
 	return poptemp->value;
 	free(poptemp);
 	}
+return 0;
 }
 
 
@@ -77,6 +80,7 @@ int showAll() {
 	printf("%d\n", top->value);
 	top = top->next;
 	}
+return 0;
 }
 
 
@@ -96,9 +100,11 @@ void Init() {
 		if (isEmpty()) {
 		newNode->next = NULL;
 		top = newNode;
+		//printf("Pushed %d\n", top->value); 
 		} else {
 		newNode->next = top;
 		top = newNode;
+		//printf("Pushed %d\n", top->value);
 		}
 	}
 }

@@ -68,7 +68,6 @@ void test_pop() {
 	}
 }
 
-/**
 
 void peek_test() {
 
@@ -77,10 +76,10 @@ void peek_test() {
 	Init();
 	
 	//Act
-	peek();
+	int peekvalue = peek();
 
 	//Assert
-	if (peekval == 99) {
+	if (peekvalue == 99) {
 		printf("Peek Test ..Successful\n");
 	} else {
 		printf("Peek Test **Failed**\n");
@@ -93,31 +92,32 @@ void stack_underflow() {
 	//Arrange
 	Reset();
 	Init();
-	
+	int popvalue;	
+
 	//Act
 	for (int j=0; j<15; j++) {
-		pop();
+		popvalue = pop();
 	}
-
+	
 	//Assert
-	if (popval == 0) {
+	if (popvalue == 0) {
 		printf("Stack Underflow ..Succesful\n");
 	} else {
 		printf("Stack Underflow **Failed**\n");
 	}
 }
 
-**/
 
-int main() {
+
+void main() {
 
 printf("Test of Stack implementation begins:\n");
 
 test_push();
 //stack_overflow();
 test_pop();
-//stack_underflow();
-//peek_test();
+stack_underflow();
+peek_test();
 
 }
 
