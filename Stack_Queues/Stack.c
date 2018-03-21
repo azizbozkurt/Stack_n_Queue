@@ -1,16 +1,11 @@
 #include <stdio.h>
 #include <stdbool.h>
 
-//Stack.c
-
-
 #define LENGTH 10
+
 
 int stack[LENGTH];
 int top = -1;
-
-int popval;
-int peekval;
 
 
 bool isempty(){
@@ -21,33 +16,24 @@ bool isfull(){
 	return top >= LENGTH - 1;
 }
 
-/**********************************************************************************
-
-int select(int sel){
-	selval = stack[sel];
-	return selval;
-}
-
-**********************************************************************************/
 
 int peek() {
-	peekval = stack[top];
+	int peekval = stack[top];
 	return peekval;
 }
 
 
 int push(int value){
 
-	if(!isfull())
-	{
+	if(!isfull()) {
 		top++;
  		stack[top] = value;
-		//Used for testing
-		//printf("good %d\n" , stack[top]);
+		//Comment when under test
+		//printf("Pushing successful. Pushed %d\n" , stack[top]);
 		return stack[top];
-
 	} else {
-		printf("Couldn't push some value. Stack is full. \n");
+		//Comment when under test
+		//printf("Couldn't push some value. Stack is full. \n");
 	}
 	return 0;
 }
@@ -57,20 +43,35 @@ int pop(){
 	//int value;
 
 	if(!isempty()){
-		popval = stack[top];
+		int popval = stack[top];
 		--top;
+		//Comment when under test
+		//printf("Popping successful. Popped %d\n" , popval);
 		return popval;
 	} else {
-		//Commented out for test purposes
+		//Comment when under test
 		//printf("Couldn't pop any value. Stack is empty. \n");
 		return 0;
 	}
 }
 
 
-void init_push_test() {
-top = -1;
+/*************************************Testing Interface*****************************/
+//Empty stack
+void Reset()  {
+	top = -1;
 }
+
+
+//Fill stack
+void Init() {
+	for (int i=0; i<10; i++) {
+	stack[i] = i*11;
+	top = LENGTH - 1;
+	}
+}
+
+
 
 
 

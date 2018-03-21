@@ -2,8 +2,6 @@
 #include <stdbool.h>
 #include <stdlib.h>
 
-//Stack_LL.c
-
 
 struct node
 {
@@ -22,14 +20,14 @@ bool isEmpty() {
 
 int push (int input) {
 
-	//struct node *newNode;
-	struct node *newNode = (struct node*)malloc(sizeof(struct node));
+	NOD *newNode = (NOD*)malloc(sizeof(NOD));
 	newNode->value = input;
 
 	if (isEmpty()) {
 	newNode->next = NULL;
 	top = newNode;
-	printf("Pushing - First Node is %d\n", input);
+	//Comment when under test
+	//printf("Pushing - First Node is %d\n", input);
 	return top->value;
 	} else {
 	newNode->next = top;
@@ -61,9 +59,12 @@ int pop() {
 	if(isEmpty()) {
 	printf("Stack is empty!!\n");
 	} else {
-	//NOD *temp;
-	printf("Deleted element %d\n", top->value);
+	NOD *poptemp = top;
 	top = top->next;
+	//Comment when under test
+	//printf("Deleted element %d\n", poptemp->value);
+	return poptemp->value;
+	free(poptemp);
 	}
 }
 
@@ -79,18 +80,32 @@ int showAll() {
 }
 
 
-/*************************Testing Interface*****************************/
-//void init_poptest() {
+/*************************Testing Interface*********************************************/
+//Empty stack
+void Reset() {
+top = NULL;
+}
+
+
+//Fill stack
+void Init() {
+	for(int i=0; i<10; i++) {
+		struct node *newNode = (struct node*)malloc(sizeof(struct node));
+		newNode->value = i*11;
+
+		if (isEmpty()) {
+		newNode->next = NULL;
+		top = newNode;
+		} else {
+		newNode->next = top;
+		top = newNode;
+		}
+	}
+}
 
 
 
-
-
-
-
-
-
-/*********************************Commented for Testing
+/*********************************Commented for Testing Purpose*******************************
 
 
 int main() {
@@ -126,5 +141,5 @@ return 0;
 
 }
 
-*********************************/
+*************************************************************************************************/
 
