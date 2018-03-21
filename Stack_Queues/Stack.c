@@ -1,6 +1,9 @@
 #include <stdio.h>
 #include <stdbool.h>
 
+//Stack.c
+
+
 #define LENGTH 10
 
 int stack[LENGTH];
@@ -62,6 +65,11 @@ int pop(){
 		//printf("Couldn't pop any value. Stack is empty. \n");
 		return 0;
 	}
+}
+
+
+void init_push_test() {
+top = -1;
 }
 
 
