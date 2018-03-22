@@ -66,7 +66,7 @@ int pop(){
 
 
 
-/*
+
 int main() {
 
 //Add elements
@@ -84,8 +84,8 @@ int main() {
 	push(995);
 
 //Show a single element
-	select(2);
-	printf("The selected element is: %d\n" ,select(sel));
+	//select(2);
+	//printf("The selected element is: %d\n" ,select(sel));
 
 
 //Delete elements, by LIFO
@@ -101,4 +101,3 @@ while(!isempty()) {
 	}
 
 }
-*/
