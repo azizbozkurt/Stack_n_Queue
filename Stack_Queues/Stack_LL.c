@@ -39,7 +39,6 @@ return 0;
 }
 
 
-
 int peek() {
 
 	if(isEmpty()) {
@@ -73,21 +72,31 @@ return 0;
 
 
 int showAll() {
-		
-	printf("\nElements in the stack are:\n");
+	//Comment when under test	
+	//printf("\nElements in the stack are:\n");
+	int showval;
 
 	while(!isEmpty()) {
-	printf("%d\n", top->value);
-	top = top->next;
-	}
-return 0;
+		//Comment when under test
+		//printf("%d\n", top->value);
+		showval = top->value;
+		top = top->next;
+		}
+	return showval;
 }
+
 
 
 /*************************Testing Interface*********************************************/
 //Empty stack
 void Reset() {
-top = NULL;
+	
+	while(top != NULL)
+	{
+		NOD *temp = top;
+		top = temp->next;
+		free(temp);
+	}
 }
 
 

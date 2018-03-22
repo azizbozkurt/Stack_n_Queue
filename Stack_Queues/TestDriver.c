@@ -108,6 +108,22 @@ void stack_underflow() {
 }
 
 
+void showAll_test() {
+	//Arrange
+	Reset();
+	Init();
+
+	//Act
+	int showvalue = showAll();
+
+	//Assert
+	if (showvalue == 0) {
+		printf("ShowAll Test ..Succesful\n");
+	} else {
+		printf("ShowAll Test **Failed**\n");	}
+}
+
+
 
 void main() {
 
@@ -118,11 +134,9 @@ test_push();
 test_pop();
 stack_underflow();
 peek_test();
+showAll_test();
+
 
 }
-
-
-
-
 
 
