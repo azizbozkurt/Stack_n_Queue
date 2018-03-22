@@ -7,12 +7,15 @@
 int stack[LENGTH];
 int top = -1;
 
+bool array = true;
 
-bool isempty(){
+
+bool isempty() {
 	return top == -1;
 }
 
-bool isfull(){
+
+bool isfull() {
 	return top >= LENGTH - 1;
 }
 
@@ -23,23 +26,22 @@ int peek() {
 }
 
 
-int push(int value){
+int push(int value) {
 
 	if(!isfull()) {
 		top++;
  		stack[top] = value;
 		//Comment when under test
 		//printf("Pushing successful. Pushed %d\n" , stack[top]);
-		return stack[top];
 	} else {
 		//Comment when under test
 		//printf("Couldn't push some value. Stack is full. \n");
 	}
-	return 0;
+	return stack[top];
 }
 
 
-int pop(){
+int pop() {
 	//int value;
 
 	if(!isempty()){
@@ -51,8 +53,21 @@ int pop(){
 	} else {
 		//Comment when under test
 		//printf("Couldn't pop any value. Stack is empty. \n");
-		return 0;
 	}
+	return 0;
+}
+
+
+int showAll() {
+	int showval;
+	//Comment when under test
+	//printf("Elements in stack are: \n");
+	while(!isempty()){
+		showval = pop();
+		//Comment when under test
+		//printf("%d\n", showval);
+	}
+	return showval;
 }
 
 
@@ -66,8 +81,8 @@ void Reset()  {
 //Fill stack
 void Init() {
 	for (int i=0; i<10; i++) {
-	stack[i] = i*11;
-	top = LENGTH - 1;
+	top++;
+	stack[top] = i*11;
 	}
 }
 
@@ -92,22 +107,14 @@ int main() {
 	push(990);
 	push(995);
 
-//Show a single element
-	select(2);
-	printf("The selected element is: %d\n" ,select(sel));
+//Show the peek element
+	peek();
+	printf("The peek element is: %d\n" , peekval);
 
 
 //Delete elements, by LIFO
 	pop();
 	//pop();
-
-
-//Show all elements in stack
-printf("Elements in stack are: \n");
-while(!isempty()) {
-	int value = pop();
-	printf("%d\n", value);
-	}
 
 }
 */

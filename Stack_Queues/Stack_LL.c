@@ -18,6 +18,9 @@ bool isEmpty() {
 }
 
 
+bool array = false;
+
+
 int push (int input) {
 
 	NOD *newNode = (NOD*)malloc(sizeof(NOD));
@@ -32,7 +35,8 @@ int push (int input) {
 	} else {
 	newNode->next = top;
 	top = newNode;
-	printf("Pushed %d\n", input);
+	//Comment when under test
+	//printf("Pushed %d\n", input);
 	return top->value;
 	}
 return 0;
@@ -109,19 +113,19 @@ void Init() {
 		if (isEmpty()) {
 		newNode->next = NULL;
 		top = newNode;
-		//printf("Pushed %d\n", top->value); 
 		} else {
 		newNode->next = top;
 		top = newNode;
-		//printf("Pushed %d\n", top->value);
 		}
 	}
 }
 
+/**************************************************************************************/
 
 
-/*********************************Commented for Testing Purpose*******************************
 
+
+/******Commented for Testing Purpose*****
 
 int main() {
 

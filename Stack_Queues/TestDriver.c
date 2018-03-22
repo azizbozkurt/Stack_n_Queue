@@ -24,29 +24,30 @@ void test_push () {
 }
 
 
-/*
-//Only for stacks implemented with arrays
+
+//Will only run for stacks implemented with arrays
 void stack_overflow() {
-	
+
+while (array) {
 	//Arrange
 	Reset();
 	Init();
-
+	int OFvalue;
 
 	//Act
-	for (int i=1; i<10; i+=1) {
-	push(i);
+	for (int i=0; i<10; i++) {
+	OFvalue = push(i);
 	}
-	
+		
 	//Assert
-	if (stack[top] == 99) {
+	if (OFvalue == 99) {
 		printf("Overflow Test ..Successful\n");
 	} else { 
 		printf("Overflow Test **Failed**\n");
 	}
+break;
 }
-*/
-
+}
 
 void test_pop() {
 
@@ -92,18 +93,18 @@ void stack_underflow() {
 	//Arrange
 	Reset();
 	Init();
-	int popvalue;	
+	int UFvalue;	
 
 	//Act
 	for (int j=0; j<15; j++) {
-		popvalue = pop();
+		UFvalue = pop();
 	}
 	
 	//Assert
-	if (popvalue == 0) {
-		printf("Stack Underflow ..Succesful\n");
+	if (UFvalue == 0) {
+		printf("Underflow Test ..Succesful\n");
 	} else {
-		printf("Stack Underflow **Failed**\n");
+		printf("Underflow Test **Failed**\n");
 	}
 }
 
@@ -130,7 +131,7 @@ void main() {
 printf("Test of Stack implementation begins:\n");
 
 test_push();
-//stack_overflow();
+stack_overflow();
 test_pop();
 stack_underflow();
 peek_test();
