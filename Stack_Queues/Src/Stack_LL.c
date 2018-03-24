@@ -30,13 +30,13 @@ int push (int input) {
 	newNode->next = NULL;
 	top = newNode;
 	//Comment when under test
-	//printf("Pushing - First Node is %d\n", input);
+	printf("Pushing - First Node is %d\n", input);
 	return top->value;
 	} else {
 	newNode->next = top;
 	top = newNode;
 	//Comment when under test
-	//printf("Pushed %d\n", input);
+	printf("Pushed %d\n", input);
 	return top->value;
 	}
 return 0;
@@ -50,7 +50,7 @@ int peek() {
 	} else {
 	int peekval = top->value;
 	//Comment when under test
-	//printf("Top element is %d\n", top->value);
+	printf("Top element is %d\n", top->value);
 	return peekval;
 	}
 return 0;
@@ -61,13 +61,13 @@ int pop() {
 
 	if(isEmpty()) {
 	//Comment when under test
-	//printf("Stack is empty!!\n");
+	printf("Stack is empty!!\n");
 	} 
 	else {
 	NOD *poptemp = top;
 	top = poptemp->next;
 	//Comment when under test
-	//printf("Deleted element %d\n", poptemp->value);
+	printf("Deleted element %d\n", poptemp->value);
 	return poptemp->value;
 	free(poptemp);
 	}
@@ -77,12 +77,12 @@ return 0;
 
 int showAll() {
 	//Comment when under test	
-	//printf("\nElements in the stack are:\n");
+	printf("\nElements in the stack are:\n");
 	int showval;
 
 	while(!isEmpty()) {
 		//Comment when under test
-		//printf("%d\n", top->value);
+		printf("%d\n", top->value);
 		showval = top->value;
 		top = top->next;
 		}
@@ -125,12 +125,12 @@ void Init() {
 
 
 
-/******Commented for Testing Purpose*****
+/******Commented for Testing Purposes*****/
 
-int main() {
+void main() {
 
 push(77);
-push(99);
+push(0);
 push(11);
 push(22);
 push(33);
@@ -141,24 +141,14 @@ push(77);
 push(98);
 push(99);
 
-
-
-//printf("%d\n", *top);
-
-//printf("%x \n", &top);
-
-//printf("Top element is %d\n", top->value);
-pop();
 pop();
 
 peek();
 
 showAll();
 
-peek();
-return 0;
 
 }
 
-*************************************************************************************************/
+/*************************************************************************************************/
 
