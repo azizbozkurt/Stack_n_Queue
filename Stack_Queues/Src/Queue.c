@@ -7,80 +7,95 @@ int queue[MAXSIZE];
 int head = 0;
 int tail = -1;
 int count = 0;
-int sel;
 
-bool isEmpty(){
-	return count == 0;
+bool isEmpty()
+{
+    return count == 0;
 }
 
-bool isFull(){
-	return count >= MAXSIZE;
+bool isFull()
+{
+    return count >= MAXSIZE;
 }
 
-
-int queue_size(){
-	return count;
+int queue_size()
+{
+    return count;
 }
 
-int select(){
-	return queue[sel];
+int select(int sel)
+{
+    return queue[sel];
 }
 
+void Enqueue(int value)
+{
 
-void insert(int value){
-
-	if(!isFull()){
-		queue[++tail] = value;
-		count++;
-	} else {
-		printf("Insert error - Queue is full.\n");
-	}
+    if (!isFull())
+    {
+        tail++;
+        queue[tail] = value;
+        count++;
+        printf("Enqueued %d\n", queue[tail]);
+    }
+    else
+    {
+        printf("Enqueue error - Queue is full.\n");
+    }
 }
 
-int delete(){
-	int value = queue[head++];
+int Dequeue()
+{
+    int value = queue[head];
+    head++;
 
-	if(head == MAXSIZE){
-		head = 0;
-	}
-	count--;
-	return value;
+    if (head == MAXSIZE)
+    {
+        head = 0;
+    }
+    count--;
+    //printf("Dequeued %d\n", value);
+    return value;
 }
 
-int main(){
+int main()
+{
 
 //Add elements
-	insert(77);
-	insert(11);
-	insert(12);
-	insert(13);
-	insert(14);
-	insert(15);
-	insert(16);
-	insert(17);
-	insert(18);
-	insert(19);
-	insert(95);
-	insert(99);
-
+    Enqueue(11);
+    Enqueue(22);
+    Enqueue(33);
+    Enqueue(44);
+    Enqueue(55);
+    Enqueue(66);
+    Enqueue(77);
+    Enqueue(88);
+    Enqueue(99);
+    Enqueue(120);
+    Enqueue(45);
 
 //Show a single element
-	select(2);
-	printf("The selected element is: %d\n" ,select(sel));
+    int selvalue = select(2);
+    printf("The selected element is: %d\n", selvalue);
 
-	printf("Amount of elements in queue: %d\n", queue_size());
+//Display the amount of elements in the queue
+    printf("\nAmount of elements in queue: %d\n", queue_size());
 
 //Delete elements, by FIFO
-	delete();
-	//delete();
-	//delete();
-	printf("Amount of elements in queue: %d\n", queue_size());
+    Dequeue();
+    Dequeue();
+    Dequeue();
+
+//Display the amount of elements in the queue
+    printf("\nAmount of elements in queue: %d\n", queue_size());
 
 //Show all elements in the queue
-	printf("Elements in the queue are: \n");
-	while(!isEmpty()) {
-		int list = delete();
-		printf("%d\n", list);
-		}
+    printf("\nElements in the queue are: \n");
+    while (!isEmpty())
+    {
+        int list = Dequeue();
+        printf("%d\n", list);
+    }
 
 }
+
